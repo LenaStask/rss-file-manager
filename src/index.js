@@ -6,6 +6,12 @@ import { handleUp } from "./handlers/handleUp.js";
 import { handleLine } from "./handlers/handleLine.js";
 import { handleCd } from "./handlers/handleCD.js";
 import { handleLs } from "./handlers/handleLs.js";
+import { handleCat } from "./handlers/handleCat.js";
+import { handleAdd } from "./handlers/handleAdd.js";
+import { handleRn } from "./handlers/handleRn.js";
+import { handleCp } from "./handlers/handleCp.js";
+import { handleMv } from "./handlers/handleMv.js";
+import { handleRm } from "./handlers/handleRm.js";
 
 process.chdir(homedir());
 
@@ -24,7 +30,16 @@ showCurrentDirectory();
 
 const eventEmitter = new EventEmitter();
 
-eventEmitter.on("up", handleUp).on("cd", handleCd).on("ls", handleLs);
+eventEmitter
+  .on("up", handleUp)
+  .on("cd", handleCd)
+  .on("ls", handleLs)
+  .on("cat", handleCat)
+  .on("add", handleAdd)
+  .on("rn", handleRn)
+  .on("cp", handleCp)
+  .on("mv", handleMv)
+  .on("rm", handleRm);
 
 const rl = readline.createInterface({
   input: process.stdin,
